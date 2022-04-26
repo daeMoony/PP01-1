@@ -25,3 +25,17 @@ public:
 	}
 
 };
+class Trap
+{
+public:
+	int x, y;
+	Trap() {
+		x = 60;
+		y = 7;
+	}
+	~Trap() {
+
+	}
+
+
+};
