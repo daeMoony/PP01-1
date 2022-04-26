@@ -16,6 +16,7 @@ namespace MuSeoun_Engine
 		chrono::system_clock::time_point startRenderTimePoint;
 		chrono::duration<double> renderDuration;
 		Player p;
+		Trap t;
 
 	public:
 		MGameLoop() { _isGameRunning = false; }
@@ -65,7 +66,14 @@ namespace MuSeoun_Engine
 		}
 		void Update()
 		{
-
+			t.x = t.x - 1;
+			if (t.x == 0) {
+				t.x = 60;
+			}
+			if (t.x == 20 && p.y == 7) {
+				printf("\nGame Over\n");
+				system("pause");
+			}
 		}
 		void Render()
 		{
@@ -75,6 +83,9 @@ namespace MuSeoun_Engine
 
 			cRenderer.MoveCursor(p.x, p.y);
 			cRenderer.DrawString("P");
+
+			cRenderer.MoveCursor(t.x, t.y);
+			cRenderer.DrawString("T");
 
 
 			cRenderer.MoveCursor(10, 20);
